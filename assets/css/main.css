@@ -3404,3 +3404,80 @@ body.is-menu-visible #menu .close {
     padding: 0 1.25em;
   }
 }
+
+#tableContainer {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+#csvRoot {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-y: auto;
+  display: block;
+  max-height: 500px;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f1f1f1;
+}
+
+tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: 250px;
+  width: 100%;
+  font-size: medium;
+}
+
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+td {
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  thead {
+    display: block;
+  }
+
+  #csvRoot {
+    max-width: 100%;
+  }
+
+  tbody {
+    display: block;
+    overflow-y: visible;
+  }
+
+  tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    flex-basis: 40%;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  tbody td:last-child {
+    border-bottom: 0;
+  }
+}
