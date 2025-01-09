@@ -8,6 +8,7 @@
 
 <head>
 	<title>Evan's Portfolio</title>
+	<link rel="icon" type="image/x-icon" href="images/computer.png" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -140,7 +141,7 @@
 							}
 
 							update(data, headerColumns = []) {
-								this.headerColumns = headerColumns; // Store header columns for `data-label`
+								this.headerColumns = headerColumns;
 								this.clear();
 								this.setHeader(headerColumns);
 								this.setBody(data);

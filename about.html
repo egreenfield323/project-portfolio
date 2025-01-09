@@ -8,6 +8,7 @@
 
 <head>
     <title>Evan's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="images/computer.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -52,33 +53,20 @@
             <div class="inner">
                 <h1>About Me</h1>
 
-
-
-                <!-- <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <img src="images/about/about_image.jpg" style="max-width: 30%; height: auto;">
-                    <p style="margin-left: 5rem;">My name is Evan Greenfield and I am a Junior Computer
-                        Science student at Ball State University.<br><br>
-                        I have been passionate about creative technology my entire life. I began mixing sound at church
-                        at a young age, served as the theatre sound head throughout middle school, and led lighting and
-                        set design in high school. My career goal has always been to create inspiring experiences, and
-                        inspire others
-                        just as I have been inspired.</p>
-                </div> -->
-
-
-                <div id="about_div" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div id="about_div"
+                    style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                     <!-- Image container -->
                     <img id="about_img" src="images/about/about_image.jpg" style="max-width: 30%; height: auto;">
 
                     <!-- Text container -->
-                    <p id="about_text" style="margin-left: 5rem;">My name is Evan Greenfield and I am a Junior Computer Science student
+                    <p id="about_text" style="margin-left: 5rem;">My name is Evan Greenfield and I am a Junior Computer
+                        Science student
                         at Ball State University.<br><br>
                         I have been passionate about creative technology my entire life. I began mixing sound at church
                         at a young age,
                         served as the theatre sound head throughout middle school, and led lighting and set design in
                         high school. My
-                        career goal has always been to create inspiring experiences and inspire others, just as I have
-                        been inspired.</p>
+                        career goal has always been to create inspiring experiences and inspire others.</p>
                 </div>
 
                 <style>
@@ -97,177 +85,6 @@
                         }
                     }
                 </style>
-
-                <!-- 
-                <div class="inner"
-                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
-                    <h2 style="text-align: center;">Project Details</h2>
-                    <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px;">
-                        <div style="flex: 0 1 35%; margin-right: 0.5rem;">
-                            <h3>Tools</h3>
-                            <ul style="list-style-position: inside;">
-                                <li>Blender</li>
-                                <li>Python</li>
-                            </ul>
-                        </div>
-                        <div style="flex: 0 1 35%; margin-left: 0.5rem;">
-                            <h3>Scope</h3>
-                            <ul style="list-style-position: inside;">
-                                <li>Vehicle design & rigging</li>
-                                <li>Scene building</li>
-                                <li>Vehicle animation & pathing</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <p>Using <a href="https://parklore.com/vault/one-only/4" target="_blank">this blueprint of the ride</a>,
-                    I modeled the layout of the ride in Blender.</p>
-                <p>I made the ride vehicles by using <a
-                        href="https://cults3d.com/en/3d-model/various/ratmobile-ratatouille?srsltid=AfmBOoozNfuakg78JkRLt8DJZvet6-h2rVypjt3vlyjInuFMJ6WSkdz6"
-                        target="_blank">this</a> as a start, and rigged it for rotation and tilt control.</p>
-                <p>I created the vehicle paths by watching ride POV videos.</p>
-
-                <div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-					   padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-                    <video autoplay loop muted playsinline
-                        style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
-                        <source src="images/remy/remy_demo_video_01.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-
-                <br>
-
-                <p>By syncing ride pov videos to my Blender sequence, I animated keyframes to move the vehicles along
-                    the path at around the same time as they move in the actual ride.</p>
-                <ul>
-                    <li>I also animated the vehicle's tilt and rotation using these videos as a reference.</li>
-                </ul>
-
-                <div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-				padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-                    <video autoplay loop muted playsinline
-                        style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
-                        <source src="images/remy/remy_demo_video_02.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-
-                <br>
-
-                <p>Now that I have the ride animated in Blender, I can use this python code I made to fetch every
-                    vehicle's path distance data, as well as the armature's rotation data. This is important for
-                    actually building the ride from an engineering stand point.</p>
-
-                <div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-					padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-                    <img src="images/remy/remy_script_code.png" style="max-width: 100%; height: auto;">
-                </div>
-
-                <br>
-
-                <p style="text-align: center;">The output appears as follows:</p>
-
-                <div
-                    style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; padding: 10px; border-radius: 15px; max-width: 70%; height: 24rem; margin: auto;">
-
-                    <table id="csvRoot"></table>
-
-                    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.2.0/papaparse.min.js"></script>
-                    <script>
-                        class TableCsv {
-                            constructor(root) {
-                                this.root = root;
-                                this.headerColumns = [];
-                            }
-
-                            update(data, headerColumns = []) {
-                                this.headerColumns = headerColumns; // Store header columns for `data-label`
-                                this.clear();
-                                this.setHeader(headerColumns);
-                                this.setBody(data);
-                            }
-
-                            clear() {
-                                this.root.innerHTML = "";
-                            }
-
-                            setHeader(headerColumns) {
-                                this.root.insertAdjacentHTML(
-                                    "afterbegin",
-                                    `
-								<thead>
-									<tr>
-										${headerColumns.map((text) => `<th>${text}</th>`).join("")}
-									</tr>
-								</thead>
-							  `
-                                );
-                            }
-
-                            setBody(data) {
-                                const rowsHtml = data.map((row) => {
-                                    return `
-								<tr>
-									${row
-                                            .map(
-                                                (text, index) =>
-                                                    `<td data-label="${this.headerColumns[index] || ''}">${text}</td>`
-                                            )
-                                            .join("")}
-								</tr>
-							  `;
-                                });
-
-                                this.root.insertAdjacentHTML(
-                                    "beforeend",
-                                    `
-								<tbody>
-									${rowsHtml.join("")}
-								</tbody>
-							  `
-                                );
-                            }
-                        }
-
-                        const tableRoot = document.querySelector("#csvRoot");
-                        const tableCsv = new TableCsv(tableRoot);
-
-                        const localCsvPath = "images/remy/remy_anim_points.csv";
-
-                        fetch(localCsvPath)
-                            .then((response) => {
-                                if (!response.ok) {
-                                    throw new Error(`HTTP error! status: ${response.status}`);
-                                }
-                                return response.text();
-                            })
-                            .then((csvText) => {
-                                Papa.parse(csvText, {
-                                    delimiter: ",",
-                                    skipEmptyLines: true,
-                                    complete: (results) => {
-                                        tableCsv.update(results.data.slice(1), results.data[0]);
-                                    },
-                                });
-                            })
-                            .catch((error) => {
-                                console.error("Error loading CSV file:", error);
-                            });
-                    </script>
-
-                </div>
-
-                <br>
-
-                <p style="text-align: center;">My repository to this project can be found <a
-                        href="https://dev.azure.com/egreenfield/_git/remy%20ratatouille%20adventure%20simulator"
-                        target="_blank">here.</a>
-                </p> -->
-
             </div>
         </div>
 
