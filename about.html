@@ -51,6 +51,53 @@
         <div id="main">
             <div class="inner">
                 <h1>About Me</h1>
+
+
+
+                <!-- <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <img src="images/about/about_image.jpg" style="max-width: 30%; height: auto;">
+                    <p style="margin-left: 5rem;">My name is Evan Greenfield and I am a Junior Computer
+                        Science student at Ball State University.<br><br>
+                        I have been passionate about creative technology my entire life. I began mixing sound at church
+                        at a young age, served as the theatre sound head throughout middle school, and led lighting and
+                        set design in high school. My career goal has always been to create inspiring experiences, and
+                        inspire others
+                        just as I have been inspired.</p>
+                </div> -->
+
+
+                <div id="about_div" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <!-- Image container -->
+                    <img id="about_img" src="images/about/about_image.jpg" style="max-width: 30%; height: auto;">
+
+                    <!-- Text container -->
+                    <p id="about_text" style="margin-left: 5rem;">My name is Evan Greenfield and I am a Junior Computer Science student
+                        at Ball State University.<br><br>
+                        I have been passionate about creative technology my entire life. I began mixing sound at church
+                        at a young age,
+                        served as the theatre sound head throughout middle school, and led lighting and set design in
+                        high school. My
+                        career goal has always been to create inspiring experiences and inspire others, just as I have
+                        been inspired.</p>
+                </div>
+
+                <style>
+                    @media (max-width: 450px) {
+                        #about_div {
+                            flex-direction: column !important;
+                        }
+
+                        #about_img {
+                            max-width: 60% !important;
+                        }
+
+                        #about_text {
+                            margin-top: 2rem !important;
+                            margin-left: 0 !important;
+                        }
+                    }
+                </style>
+
                 <!-- 
                 <div class="inner"
                     style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
