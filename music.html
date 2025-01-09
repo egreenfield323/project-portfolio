@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Evan's Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <script src="https://grist-static.com/csv-viewer.js"></script>
+</head>
+
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio</span>
+                </a>
+
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="assets/revised_resume.pdf" target="_blank">Resume</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>Music</h1>
+                <span class="image main"><img src="images/music/music_banner.png" alt="" /></span>
+
+                <div class="inner"
+                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
+                    <h2 style="text-align: center;">Tools</h2>
+                    <div style="justify-content: space-between; width: 100%; max-width: 800px;">
+                        <div style="text-align: center;">
+                            <p>Ableton Live 11/12<br>
+                                Adobe Audition</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <p style="text-align: center;">Here are some tracks I have made.</p>
+
+                <div
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+                        <source src="images/music/foo new.wav" type="audio/mp3">
+                        Sorry, your browser does not support HTML5 audio.
+                    </audio>
+                    <br>
+                    <p style="color: crimson; font-size: smaller; text-align: center;">↓ Click on a song to play it ↓</p>
+                    <ul id="playlist" style="list-style-type: none; padding: 0; margin: 10px 0;">
+                        <li class="active" style="margin-bottom: 10px;">
+                            <a href="images/music/foo new.wav">Birds Of A Feather w/ Layers</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/Surfaces Inspired Bossa Nova.wav">Surfaces Inspired Bossa Nova</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/Evan Band.wav">Praise Band Piece Inspired By Newsboys</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/jazz_2.mp3">Playing With Modern-Style Jazz Drums</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/sax new.wav">I Really Like Tenor Saxophone</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/chill.mp3">"Chill"</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/crazychord3.wav">Dumbed Down "Jacob Collier Chords"</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/forest.mp3">My First "Orchestral" Piece</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/spacething.mp3">My Version of "Space Chords"</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="images/music/gameideafal.mp3">Space Game Inspired</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Playlist script -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const audio = document.getElementById('audio');
+                        const playlist = document.getElementById('playlist');
+                        const tracks = playlist.getElementsByTagName('a');
+                        let current = 0;
+
+                        // Initialize the playlist
+                        function loadTrack(index) {
+                            const link = tracks[index];
+                            audio.src = link.href;
+                            const activeItem = playlist.querySelector('.active');
+                            if (activeItem) activeItem.classList.remove('active');
+                            link.parentElement.classList.add('active');
+                        }
+
+                        // Event listener for clicks on playlist items
+                        for (let i = 0; i < tracks.length; i++) {
+                            tracks[i].addEventListener('click', function (e) {
+                                e.preventDefault();
+                                current = i;
+                                loadTrack(current);
+                                audio.play();
+                            });
+                        }
+
+                        // Load the first track initially
+                        loadTrack(current);
+
+                        // Automatically play the next track when the current one ends
+                        audio.addEventListener('ended', function () {
+                            current = (current + 1) % tracks.length; // Loop back to the start
+                            loadTrack(current);
+                            audio.play();
+                        });
+                    });
+                </script>
+
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <p><i><b>Contact</b></i></p>
+                    <ul class="icons">
+                        <li><a href="https://www.instagram.com/evan.greenfield9/"
+                                class="icon brands style1 fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li><a href="https://github.com/egreenfield323" class="icon brands style1 fa-github"><span
+                                    class="label">GitHub</span></a></li>
+                        <li><a href="https://www.linkedin.com/in/evangreenfield1"
+                                class="icon brands style1 fa-linkedin"><span class="label">Linkedin</span></a>
+                        </li>
+                        <li><a href="mailto:evan@evangreenfield.dev" class="icon solid style1 fa-envelope"><span
+                                    class="label">Email</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Evan Greenfield</li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
