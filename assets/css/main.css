@@ -2715,7 +2715,7 @@ button:disabled,
   height: 100%;
   opacity: 1;
   z-index: 1;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .tiles article > .image:after {
@@ -3479,5 +3479,11 @@ td {
 
   tbody td:last-child {
     border-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  div {
+    max-width: 100% !important;
   }
 }
