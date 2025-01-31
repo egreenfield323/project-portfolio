@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Evan's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="images/computer.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <script src="https://grist-static.com/csv-viewer.js"></script>
+</head>
+
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio</span>
+                </a>
+
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="assets/revised_resume.pdf" target="_blank">Resume</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>GoLang Data Management Application</h1>
+                <span class="image main"><img src="images/golang_data_manager/golang_data_manager_banner.png"
+                        alt="" /></span>
+
+                <div class="inner"
+                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
+                    <h2 style="text-align: center;">Project Details</h2>
+                    <div style="justify-content: center; width: 100%; max-width: 800px;">
+                        <div style="flex: 0 1 35%; margin-right: 0.5rem;">
+                            <h3 style="text-align: center;">Tools</h3>
+                            <p style="text-align: center;">Go</p>
+                            <p style="text-align: center;">MySQL</p>
+                            <p style="text-align: center;">HTML/CSS/JavaScript</p>
+                        </div>
+                    </div>
+                    <br>
+                    <b>
+                        <a style="text-align: center;" href="https://github.com/egreenfield323/golang-data-management"
+                            target="_blank">Github Repo</a>
+                    </b>
+                </div>
+
+                <br>
+
+                <p style="text-align: center"><b>User management system</b> made with <b>Go</b> and <b>MySQL</b> that
+                    allows users to
+                    <b>perform CRUD actions</b> on a user
+                    database.
+                </p>
+
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            background-color: #e7e7e7; padding: 10px; border-radius: 15px; max-width: 80%; margin: auto; 
+            overflow: hidden;">
+
+                    <video autoplay loop muted playsinline
+                        style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
+                        <source src="images/golang_data_manager/golang_data_manager_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                </div>
+                <br>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; 
+                    background-color: #e7e7e7; padding: 20px; border-radius: 15px; 
+                    max-width: 70%; margin: auto; overflow: hidden;">
+
+                    <!-- Left side -->
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <img src="images/golang_data_manager/golang_data_manager_mysql_code.png"
+                            style="max-width: 100%; height: auto; border-radius: 20px; margin-bottom: 10px;">
+                        <p style="text-align: center; margin: 0;">Implementation in code</p>
+                    </div>
+
+                    <!-- Right side -->
+                    <div
+                        style="flex: 1; display: flex; justify-content: center; align-items: center; margin-left: 20px;">
+                        <p style="margin: 0;">The MySQL code. I used MySQL Workbench for this
+                            project to make it easier to monitor table rows.</p>
+                    </div>
+                </div>
+                <br>
+                <div style="display: flex; flex-direction: column; align-items: center; 
+            background-color: #e7e7e7; padding: 20px; border-radius: 15px; 
+            max-width: 70%; margin: auto; overflow: hidden;">
+
+
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                        <p style="margin: 0;">I then used Go's MySQL driver to create CRUD functions in Go.</p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="images/golang_data_manager/golang_data_manager_mysql_implementation_code.png"
+                            style="max-width: 100%; height: auto; border-radius: 20px; border: 3px solid rgb(24, 0, 82);">
+                    </div>
+                    <br><br>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                        <p style="margin: 0;">These functions are called inside this user_service file. </p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="images/golang_data_manager/golang_data_manager_user_service.png"
+                            style="max-width: 70%; height: auto; border-radius: 20px; border: 3px solid rgb(24, 0, 82);">
+                    </div>
+                    <br><br>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                        <p style="margin: 0;">The user_service file acts as
+                            the middle-man between the db and User structure (pictured below).</p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="images/golang_data_manager/golang_data_manager_user.png"
+                            style="max-width: 60%; height: auto; border-radius: 20px; border: 3px solid rgb(24, 0, 82);">
+                    </div>
+                    <p style="text-align: center; margin: 0;">User structure</p>
+                    <br><br>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                        <p style="margin: 0;">These functions are called by the user_handler, which handles the HTTP
+                            request to create a new user in the web application.</p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="images/golang_data_manager/golang_data_manager_user_handler.png"
+                            style="max-width: 100%; height: auto; border-radius: 20px; border: 3px solid rgb(24, 0, 82);">
+                    </div>
+
+                    <br><br>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                        <p style="margin: 0;">Finally, those functions are called by button press in the HTML front-end.
+                        </p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="images/golang_data_manager/golang_data_manager_javascript.png"
+                            style="max-width: 100%; height: auto; border-radius: 20px; border: 3px solid rgb(24, 0, 82);">
+                    </div>
+                    <p style="text-align: center; margin: 0;">Javascript called when the "Create" button is clicked</p>
+                </div>
+
+                <br>
+
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            background-color: #e7e7e7; padding: 10px; border-radius: 30px; 
+            max-width: 40%; margin: auto; overflow: hidden; height: 200px;">
+
+                    <p style="text-align: center; margin: 0;">Complete code can be found in the <a
+                            href="https://github.com/egreenfield323/golang-data-management"
+                            target="_blank"><b>repository!</b></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <p><i><b>Contact</b></i></p>
+                    <ul class="icons">
+                        <li><a href="https://www.instagram.com/evan.greenfield9/"
+                                class="icon brands style1 fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li><a href="https://github.com/egreenfield323" class="icon brands style1 fa-github"><span
+                                    class="label">GitHub</span></a></li>
+                        <li><a href="https://www.linkedin.com/in/evangreenfield1"
+                                class="icon brands style1 fa-linkedin"><span class="label">Linkedin</span></a>
+                        </li>
+                        <li><a href="mailto:evan@evangreenfield.dev" class="icon solid style1 fa-envelope"><span
+                                    class="label">Email</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Evan Greenfield</li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
