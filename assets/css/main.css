@@ -3489,3 +3489,25 @@ td {
     max-width: 100% !important;
   }
 }
+
+.filter-buttons {
+  margin-bottom: 50px !important;
+}
+
+.filter-buttons button {
+  margin: 5px !important;
+  border: none !important;
+  border-radius: 25px !important;
+  cursor: pointer;
+  background-color: #585858;
+  color: white !important;
+  font-size: 12px !important;
+}
+
+.filter-buttons button:hover {
+  background-color: #2b2b2b;
+}
+
+.hidden {
+  display: none;
+}

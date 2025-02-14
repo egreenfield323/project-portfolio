@@ -50,8 +50,19 @@
 				<header>
 					<h1>Evan Greenfield</h1>
 				</header>
+
+				<!-- Filter Buttons -->
+				<div class="filter-buttons">
+					<button onclick="filterArticles('all')">All</button>
+					<button onclick="filterArticles('Programming')">Programming</button>
+					<button onclick="filterArticles('AV_Production')">Audio/Video Production</button>
+					<button onclick="filterArticles('Game_Development')">Game Development</button>
+					<button onclick="filterArticles('Animation')">Animation</button>
+				</div>
+
+				<!-- Project Tiles -->
 				<section class="tiles">
-					<article class="style6">
+					<article class="style6 category-Animation category-Programming">
 						<span class="image">
 							<img src="images/remy.png" alt="" />
 						</span>
@@ -63,7 +74,8 @@
 							</div>
 						</a>
 					</article>
-					<article class="style2">
+
+					<article class="style2 category-Game_Development category-Programming category-AV_Production">
 						<span class="image">
 							<img src="images/welcome_inn/welcome_inn.png" alt="" />
 						</span>
@@ -75,7 +87,7 @@
 						</a>
 					</article>
 
-					<article class="style3">
+					<article class="style3 category-Animation">
 						<span class="image">
 							<img src="images/lego_nwh/lego_nwh_cover.png" alt="" />
 						</span>
@@ -87,7 +99,7 @@
 						</a>
 					</article>
 
-					<article class="style6">
+					<article class="style6 category-AV_Production category-Programming">
 						<span class="image">
 							<img src="images/3ds_sound_software/3ds_sound_software_cover.png" alt="" />
 						</span>
@@ -99,7 +111,7 @@
 						</a>
 					</article>
 
-					<article class="style4">
+					<article class="style4 category-Programming">
 						<span class="image">
 							<img src="images/tcp_server/tcp_server_cover.png" alt="" />
 						</span>
@@ -111,7 +123,7 @@
 						</a>
 					</article>
 
-					<article class="style5">
+					<article class="style5 category-Programming">
 						<span class="image">
 							<img src="images/mandelbrot_explorer/mandelbrot_explorer_cover.png" alt="" />
 						</span>
@@ -123,7 +135,7 @@
 						</a>
 					</article>
 
-					<article class="style4">
+					<article class="style4 category-Programming">
 						<span class="image">
 							<img src="images/golang_data_manager/golang_data_manager_cover.png" alt="" />
 						</span>
@@ -135,7 +147,7 @@
 						</a>
 					</article>
 
-					<article class="style6">
+					<article class="style6 category-AV_Production">
 						<span class="image">
 							<img src="images/live_production/live_production_cover.png" alt="" />
 						</span>
@@ -147,7 +159,7 @@
 						</a>
 					</article>
 
-					<article class="style5">
+					<article class="style5 category-AV_Production">
 						<span class="image">
 							<img src="images/music/music_cover.png" alt="" />
 						</span>
@@ -159,7 +171,7 @@
 						</a>
 					</article>
 
-					<article class="style4">
+					<article class="style4 category-Animation">
 						<span class="image">
 							<img src="images/animation_reel/animation_reel_cover.png" alt="" />
 						</span>
@@ -170,75 +182,27 @@
 							</div>
 						</a>
 					</article>
-
-					<!-- 
-						<article class="style2">
-							<span class="image">
-								<img src="images/pic07.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Ipsum</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style3">
-						<span class="image">
-							<img src="images/pic08.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Dolor</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style1">
-						<span class="image">
-							<img src="images/pic09.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Nullam</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style5">
-						<span class="image">
-							<img src="images/pic10.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Ultricies</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style6">
-						<span class="image">
-							<img src="images/pic11.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Dictum</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style4">
-						<span class="image">
-							<img src="images/pic12.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Pretium</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article> -->
 				</section>
+
+				<!-- JavaScript for Filtering -->
+				<script>
+					function filterArticles(category) {
+						let articles = document.querySelectorAll('.tiles article');
+
+						articles.forEach(article => {
+							if (category === 'all') {
+								article.classList.remove('hidden');
+							} else {
+								if (article.classList.contains('category-' + category)) {
+									article.classList.remove('hidden');
+								} else {
+									article.classList.add('hidden');
+								}
+							}
+						});
+					}
+				</script>
+
 			</div>
 		</div>
 
