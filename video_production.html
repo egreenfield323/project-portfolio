@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<!--
+    Phantom by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Evan's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="images/computer.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <script src="https://grist-static.com/csv-viewer.js"></script>
+</head>
+
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio</span>
+                </a>
+
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="assets/revised_resume.pdf" target="_blank">Resume</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>Video Production</h1>
+                <span class="image main"><img src="images/video_production/video_production_banner.png" alt="" /></span>
+
+                <div class="inner"
+                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
+                    <h2 style="text-align: center;">Tools</h2>
+                    <div style="justify-content: space-between; width: 100%; max-width: 800px;">
+                        <p style="text-align: center;">Adobe Premiere Pro</p>
+                        <p style="text-align: center;">Adobe After Effects</p>
+                        <p style="text-align: center;">Adobe Photoshop</p>
+                        <p style="text-align: center;">Adobe Audition & Ableton Live (Audio)</p>
+                        <p style="text-align: center;">Davinci Resolve</p>
+                    </div>
+                </div>
+
+                <br>
+
+                <p style="text-align: center;">
+                    I have been creating and editing videos since I was very young and have produced hundreds!
+                    Here are a few of the videos I have edited.
+                </p>
+
+                <div class="video-container" id="videoGallery"></div>
+
+                <script>
+                    // YouTube video URLs and titles
+                    const youtubeVideos = [
+                        { url: "https://youtu.be/FjqpCj6BhTI", title: "High School COVID Choir Edit" },
+                        { url: "https://youtu.be/gKyzdyaFgVM", title: "High School COVID Marching Band Edit" },
+                        { url: "https://youtu.be/QrFSPUKVaKY", title: "Church Interview" },
+                        { url: "https://youtu.be/vD8qs8g-uoo", title: "Jazz Documentary" },
+                        { url: "https://youtu.be/KL9hWscUVjM", title: "Disney Wish Trip Snippets" },
+                        { url: "https://youtu.be/y9ejzlTtbo8?si=zoam40sJG0Ei9tAE", title: "I Produce This Podcast" },
+                        { url: "https://youtu.be/QqGo7ws4u7s?si=hT92awc_pILbUAdJ", title: "YouTube Tutorial (Almost 6 years ago!)" },
+                    ];
+
+                    // Generate video thumbnails and titles
+                    function createVideoGallery() {
+                        const gallery = document.getElementById("videoGallery");
+
+                        youtubeVideos.forEach((video, index) => {
+                            const videoId = getYouTubeID(video.url);
+                            const videoDiv = document.createElement("div");
+                            videoDiv.className = "galleryVideo";
+
+                            // Create thumbnail image
+                            const thumbnail = document.createElement("img");
+                            thumbnail.src = `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`;
+                            thumbnail.alt = `YouTube Video Thumbnail ${index + 1}`;
+                            thumbnail.style.cursor = "pointer";
+                            thumbnail.addEventListener("click", () => loadYouTubeVideo(videoId, index));
+
+                            // Create title element
+                            const title = document.createElement("p");
+                            title.className = "video-title";
+                            title.textContent = video.title;
+
+                            // Append thumbnail and title to the video container
+                            videoDiv.appendChild(thumbnail);
+                            videoDiv.appendChild(title);
+
+                            // Append video container to the gallery
+                            gallery.appendChild(videoDiv);
+                        });
+                    }
+
+                    // Get the video ID from a YouTube URL
+                    function getYouTubeID(url) {
+                        const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+                        const match = url.match(regExp);
+                        return (match && match[1]) ? match[1] : null;
+                    }
+
+                    // Load the YouTube iframe when thumbnail is clicked
+                    function loadYouTubeVideo(videoId, index) {
+                        const videoDiv = document.getElementsByClassName("galleryVideo")[index];
+
+                        // Create the iframe
+                        const iframe = document.createElement("iframe");
+                        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0&modestbranding=1&rel=0`;
+                        iframe.title = "YouTube video player";
+                        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                        iframe.allowFullscreen = true;
+                        iframe.style.width = "100%";
+                        iframe.style.height = "15rem";
+                        iframe.style.borderRadius = "1rem";
+
+                        videoDiv.innerHTML = "";
+                        videoDiv.appendChild(iframe);
+
+                        const title = document.createElement("p");
+                        title.className = "video-title";
+                        title.textContent = youtubeVideos[index].title;
+                        videoDiv.appendChild(title);
+                    }
+
+                    createVideoGallery();
+                </script>
+            </div>
+
+            <br>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <section>
+                <p><i><b>Contact</b></i></p>
+                <ul class="icons">
+                    <li><a href="https://www.instagram.com/evan.greenfield9/"
+                            class="icon brands style1 fa-instagram"><span class="label">Instagram</span></a>
+                    </li>
+                    <li><a href="https://github.com/egreenfield323" class="icon brands style1 fa-github"><span
+                                class="label">GitHub</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/evangreenfield1"
+                            class="icon brands style1 fa-linkedin"><span class="label">Linkedin</span></a>
+                    </li>
+                    <li><a href="mailto:evan@evangreenfield.dev" class="icon solid style1 fa-envelope"><span
+                                class="label">Email</span></a></li>
+                </ul>
+            </section>
+            <ul class="copyright">
+                <li>&copy; Evan Greenfield</li>
+            </ul>
+        </div>
+    </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
