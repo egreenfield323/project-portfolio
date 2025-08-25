@@ -1,190 +1,196 @@
 <!DOCTYPE HTML>
 <!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Phantom by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 
-<head>
+  <head>
     <title>Evan's Portfolio</title>
     <link rel="icon" type="image/x-icon" href="images/computer.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+      <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
     <script src="https://grist-static.com/csv-viewer.js"></script>
-</head>
+  </head>
 
-<body class="is-preload">
+  <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
 
-        <!-- Header -->
-        <header id="header">
-            <div class="inner">
-                <a href="index.html" class="logo">
-                    <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio</span>
-                </a>
+      <!-- Header -->
+      <header id="header">
+        <div class="inner">
+          <a href="index.html" class="logo">
+            <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio</span>
+          </a>
 
-                <nav>
-                    <ul>
-                        <li><a href="#menu">Menu</a></li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
-
-        <!-- Menu -->
-        <nav id="menu">
-            <h2>Menu</h2>
+          <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="assets/revised_resume.pdf" target="_blank">Resume</a></li>
+              <li><a href="#menu">Menu</a></li>
             </ul>
-        </nav>
+          </nav>
 
-        <!-- Main -->
-        <div id="main">
-            <div class="inner">
-                <h1>Music</h1>
-                <span class="image main"><img src="images/music/music_banner.png" alt="" /></span>
-
-                <div class="inner"
-                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
-                    <h2 style="text-align: center;">Tools</h2>
-                    <div style="justify-content: space-between; width: 100%; max-width: 800px;">
-                        <div style="text-align: center;">
-                            <p>Ableton Live 11/12<br>
-                                Adobe Audition</p>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <p style="text-align: center;">Here are some tracks I have made from scratch.</p>
-
-                <div
-                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                    <audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
-                        <source src="images/music/foo new.wav" type="audio/mp3">
-                        Sorry, your browser does not support HTML5 audio.
-                    </audio>
-                    <br>
-                    <p style="color: crimson; font-size: smaller; text-align: center;">↓ Click on a song to play it ↓
-                    </p>
-                    <ul id="playlist" style="list-style-type: none; padding: 0; margin: 10px 0;">
-                        <li class="active" style="margin-bottom: 10px;">
-                            <a href="images/music/foo new.mp3">Birds Of A Feather w/ Layers</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/underwater.mp3">Underwater Game Theme</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/Surfaces Inspired Bossa Nova.mp3">Surfaces Inspired Instrumental Track</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/jazz_in_3.mp3">Jazz Ballad in 3/4</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/jungle_game.mp3">Jungle Game Track</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/mas_que_nada.mp3">"Mas Que Nada" Game Track</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/fast_swing.mp3">Double Time Swing</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/Evan Band.mp3">Praise Band Piece Inspired By Newsboys</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/jazz_2.mp3">Playing With Modern-Style Jazz Drums</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/sax new.mp3">I Really Like Tenor Saxophone</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/chill.mp3">"Chill"</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/crazychord3.mp3">Dumbed Down "Jacob Collier Chords"</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="images/music/forest.mp3">My First "Orchestral" Piece</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Playlist script -->
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const audio = document.getElementById('audio');
-                        const playlist = document.getElementById('playlist');
-                        const tracks = playlist.getElementsByTagName('a');
-                        let current = 0;
-
-                        // Initialize the playlist
-                        function loadTrack(index) {
-                            const link = tracks[index];
-                            audio.src = link.href;
-                            const activeItem = playlist.querySelector('.active');
-                            if (activeItem) activeItem.classList.remove('active');
-                            link.parentElement.classList.add('active');
-                        }
-
-                        // Event listener for clicks on playlist items
-                        for (let i = 0; i < tracks.length; i++) {
-                            tracks[i].addEventListener('click', function (e) {
-                                e.preventDefault();
-                                current = i;
-                                loadTrack(current);
-                                audio.play();
-                            });
-                        }
-
-                        // Load the first track initially
-                        loadTrack(current);
-
-                        // Automatically play the next track when the current one ends
-                        audio.addEventListener('ended', function () {
-                            current = (current + 1) % tracks.length; // Loop back to the start
-                            loadTrack(current);
-                            audio.play();
-                        });
-                    });
-                </script>
-
-            </div>
         </div>
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <section>
-                    <p><i><b>Contact</b></i></p>
-                    <ul class="icons">
-                        <li><a href="https://www.instagram.com/evan.greenfield9/"
-                                class="icon brands style1 fa-instagram"><span class="label">Instagram</span></a>
-                        </li>
-                        <li><a href="https://github.com/egreenfield323" class="icon brands style1 fa-github"><span
-                                    class="label">GitHub</span></a></li>
-                        <li><a href="https://www.linkedin.com/in/evangreenfield1"
-                                class="icon brands style1 fa-linkedin"><span class="label">Linkedin</span></a>
-                        </li>
-                        <li><a href="mailto:evan@evangreenfield.dev" class="icon solid style1 fa-envelope"><span
-                                    class="label">Email</span></a></li>
-                    </ul>
-                </section>
-                <ul class="copyright">
-                    <li>&copy; Evan Greenfield</li>
-                </ul>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="assets/revised_resume.pdf" target="_blank">Resume</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <h1>Music</h1>
+          <span class="image main"><img src="images/music/music_banner.png" alt="" /></span>
+
+          <div class="inner"
+               style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
+            <h2 style="text-align: center;">Tools</h2>
+            <div style="justify-content: space-between; width: 100%; max-width: 800px;">
+              <div style="text-align: center;">
+                <p>Ableton Live 11/12<br>
+                Adobe Audition</p>
+              </div>
             </div>
-        </footer>
+          </div>
+          <br>
+          <p style="text-align: center;"> Here is my Spotify profile </p>
+          <br>
+
+          <div style="margin: auto; width: 70%; margin-left: auto; margin-right:auto">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3ihuLsvXr1Q8BVZXVQTDM5?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <br>
+
+          <p style="text-align: center;">Here are some other tracks I have made.</p>
+
+          <div
+              style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+              <source src="images/music/foo new.wav" type="audio/mp3">
+              Sorry, your browser does not support HTML5 audio.
+            </audio>
+            <br>
+            <p style="color: crimson; font-size: smaller; text-align: center;">↓ Click on a song to play it ↓
+            </p>
+            <ul id="playlist" style="list-style-type: none; padding: 0; margin: 10px 0;">
+              <li class="active" style="margin-bottom: 10px;">
+                <a href="images/music/foo new.mp3">Birds Of A Feather w/ Layers</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/underwater.mp3">Underwater Game Theme</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/Surfaces Inspired Bossa Nova.mp3">Surfaces Inspired Instrumental Track</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/jazz_in_3.mp3">Jazz Ballad in 3/4</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/jungle_game.mp3">Jungle Game Track</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/mas_que_nada.mp3">"Mas Que Nada" Game Track</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/fast_swing.mp3">Double Time Swing</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/Evan Band.mp3">Praise Band Piece Inspired By Newsboys</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/jazz_2.mp3">Playing With Modern-Style Jazz Drums</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/sax new.mp3">I Really Like Tenor Saxophone</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/chill.mp3">"Chill"</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/crazychord3.mp3">Dumbed Down "Jacob Collier Chords"</a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="images/music/forest.mp3">My First "Orchestral" Piece</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Playlist script -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const audio = document.getElementById('audio');
+              const playlist = document.getElementById('playlist');
+              const tracks = playlist.getElementsByTagName('a');
+              let current = 0;
+
+              // Initialize the playlist
+              function loadTrack(index) {
+                const link = tracks[index];
+                audio.src = link.href;
+                const activeItem = playlist.querySelector('.active');
+                if (activeItem) activeItem.classList.remove('active');
+                link.parentElement.classList.add('active');
+              }
+
+              // Event listener for clicks on playlist items
+              for (let i = 0; i < tracks.length; i++) {
+                tracks[i].addEventListener('click', function (e) {
+                  e.preventDefault();
+                  current = i;
+                  loadTrack(current);
+                  audio.play();
+                });
+              }
+
+              // Load the first track initially
+              loadTrack(current);
+
+              // Automatically play the next track when the current one ends
+              audio.addEventListener('ended', function () {
+                current = (current + 1) % tracks.length; // Loop back to the start
+                loadTrack(current);
+                audio.play();
+              });
+            });
+          </script>
+
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <section>
+            <p><i><b>Contact</b></i></p>
+            <ul class="icons">
+              <li><a href="https://www.instagram.com/evan.greenfield9/"
+                     class="icon brands style1 fa-instagram"><span class="label">Instagram</span></a>
+              </li>
+              <li><a href="https://github.com/egreenfield323" class="icon brands style1 fa-github"><span
+                                                              class="label">GitHub</span></a></li>
+              <li><a href="https://www.linkedin.com/in/evangreenfield1"
+                     class="icon brands style1 fa-linkedin"><span class="label">Linkedin</span></a>
+              </li>
+              <li><a href="mailto:evan@evangreenfield.dev" class="icon solid style1 fa-envelope"><span
+                                                           class="label">Email</span></a></li>
+            </ul>
+          </section>
+          <ul class="copyright">
+            <li>&copy; Evan Greenfield</li>
+          </ul>
+        </div>
+      </footer>
 
     </div>
 
@@ -195,6 +201,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-</body>
+  </body>
 
 </html>
