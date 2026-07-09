@@ -12,6 +12,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/enhancements.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -49,41 +50,43 @@
 			<div class="inner">
 				<header>
 					<h1>Evan Greenfield</h1>
-					<p>CS Student @ Ball State University, Graduating 2026</p>
+					<p>Software Engineer @ Genesys</p>
 				</header>
 
 				<!-- Filter Buttons -->
 				<div class="filter-buttons">
-					<button onclick="filterArticles('all')">All</button>
-					<button onclick="filterArticles('Programming')">Programming</button>
-					<button onclick="filterArticles('AV_Production')">Audio/Video Production</button>
-					<button onclick="filterArticles('Game_Development')">Game Development</button>
+					<button class="active" onclick="filterArticles('all', this)">All</button>
+						<button onclick="filterArticles('Themed_Entertainment', this)">Themed Entertainment</button>
+					<button onclick="filterArticles('Programming', this)">Programming</button>
+					<button onclick="filterArticles('AV_Production', this)">Audio/Video Production</button>
+					<button onclick="filterArticles('Game_Development', this)">Game Development</button>
 					<!-- <button onclick="filterArticles('Animation')">Animation</button> -->
 				</div>
 
 				<!-- Project Tiles -->
 				<section class="tiles">
-					<article class="style6 category-Animation category-Programming">
+					<article class="style6 category-Themed_Entertainment category-Animation category-Programming">
 						<span class="image">
 							<img src="images/remy.png" alt="" />
 						</span>
 						<a href="remy.html">
 							<h2>Remy's Ratatouille Adventure Simulator</h2>
 							<div class="content">
-								<p>Movement re-creation of Disney's Remy's Ratatouille Adventure found in Epcot and
-									Disneyland Paris.</p>
+								<p>Trackless ride vehicle simulation of Disney's Remy's Ratatouille Adventure (EPCOT &amp;
+									Disneyland Paris), rebuilt from real ride blueprints and POV footage.</p>
 							</div>
 						</a>
 					</article>
 
-					<article class="style5 category-Programming">
+					<article class="style5 category-Themed_Entertainment category-Programming">
 						<span class="image">
 							<img src="images/rcs/rcs_thumbnail.png" alt="" />
 						</span>
 						<a href="rcs.html">
 							<h2>Ride Control System</h2>
 							<div class="content">
-								<p>Custom Ride Control System Simulator.</p>
+								<p>Interactive ride control system simulator with vehicle dispatch, ride start/stop,
+										and safety-system monitoring.</p>
 							</div>
 						</a>
 					</article>
@@ -211,18 +214,26 @@
 
 				<!-- JavaScript for Filtering -->
 				<script>
-					function filterArticles(category) {
+					function filterArticles(category, button) {
+						document.querySelectorAll('.filter-buttons button').forEach(b => b.classList.remove('active'));
+						if (button) button.classList.add('active');
+
 						let articles = document.querySelectorAll('.tiles article');
 
 						articles.forEach(article => {
-							if (category === 'all') {
+							let show = category === 'all' || article.classList.contains('category-' + category);
+
+							if (show) {
 								article.classList.remove('hidden');
+								void article.offsetWidth; // force reflow so the fade-in transition plays
+								article.classList.remove('fade-out');
 							} else {
-								if (article.classList.contains('category-' + category)) {
-									article.classList.remove('hidden');
-								} else {
-									article.classList.add('hidden');
-								}
+								article.classList.add('fade-out');
+								setTimeout(() => {
+									if (article.classList.contains('fade-out')) {
+										article.classList.add('hidden');
+									}
+								}, 350);
 							}
 						});
 					}
@@ -262,6 +273,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/enhancements.js"></script>
 
 </body>
 

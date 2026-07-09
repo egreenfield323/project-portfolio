@@ -12,6 +12,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/enhancements.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -50,152 +51,122 @@
 
 		<!-- Main -->
 		<div id="main">
-			<div class="inner">
+			<div class="inner project">
 				<h1>Welcome Inn</h1>
+				<p class="project-lede">A tycoon game built from scratch in Godot with one classmate for BSU CS315
+					&mdash; Game Programming.</p>
 				<span class="image main"><img src="images/welcome_inn/welcome_inn_banner.png" alt="" /></span>
-				<p>This project was made while taking BSU CS315 - Game Programming with one other peer.</p>
-				<div class="inner"
-					style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
-					<h2 style="text-align: center;">Project Details</h2>
-					<div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px;">
-						<div style="flex: 0 1 35%; margin-right: 0.5rem;">
-							<h3>Tools</h3>
-							<ul>
-								<li>Godot Engine</li>
-								<li>GDScript</li>
-								<li>Ableton Live 11</li>
-								<li>Photoshop</li>
-								<li>Git & Github</li>
-							</ul>
-						</div>
-						<div style="flex: 0 1 35%; margin-left: 0.5rem;">
-							<h3>My Scope</h3>
-							<ul>
-								<li>Game Design</li>
-								<li>Game Programming</li>
-								<li>User Interface</li>
-								<li>Sprite Setup & Animation</li>
-								<li>Music Composition & Sound Design</li>
-								<li>Scene Building</li>
-							</ul>
-						</div>
+
+				<div class="meta-bar">
+					<div>
+						<h3>Tools</h3>
+						<ul>
+							<li>Godot Engine</li>
+							<li>GDScript</li>
+							<li>Ableton Live 11</li>
+							<li>Photoshop</li>
+							<li>Git &amp; GitHub</li>
+						</ul>
+					</div>
+					<div>
+						<h3>My Scope</h3>
+						<ul>
+							<li>Game design &amp; programming</li>
+							<li>User interface</li>
+							<li>Sprite setup &amp; animation</li>
+							<li>Music composition &amp; sound design</li>
+							<li>Scene building</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Links</h3>
+						<ul>
+							<li><a href="https://github.com/egreenfield323/CS315-Project3" target="_blank">GitHub
+									repo</a></li>
+						</ul>
 					</div>
 				</div>
 
-				<br>
-
-				<ul
-					style="list-style: none; text-align: center; margin: 0 auto; padding: 0; display: flex; flex-direction: column; align-items: center;">
-					<h2>Shop/Shop upgrades</h2>
-
-					<p>One thing I handled in this project was the shop logic</p>
-
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-					   padding: 10px; border-radius: 15px; max-width: 40%; margin: auto;">
-						<img src="images/welcome_inn/welcome_inn_shop.png" style="max-width: 100%; height: auto;">
+				<h2>Shop &amp; upgrades</h2>
+				<div class="split">
+					<figure class="split-media">
+						<img src="images/welcome_inn/welcome_inn_shop.png" alt="In-game shop" />
+					</figure>
+					<div class="split-text">
+						<p>One system I handled was the shop logic. The shop's upgrade buttons track the player's
+							current level for each upgrade and dynamically update the price based on the upgrade
+							level.</p>
 					</div>
-					<br>
-					<p>The shop's upgrade buttons track the player's current level for each upgrade and dynamically
-						update the price based on the upgrade level.</p>
+				</div>
 
-					<p>Some upgrades require a bit more work, like the table upgrade. The table upgrade button lets
-						players buy more tables until the maximum is reached, after which it upgrades existing tables by
-						increasing their size.</p>
-
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-					   padding: 10px; border-radius: 15px; max-width: 40%; margin: auto;">
+				<div class="split flip">
+					<figure class="split-media">
 						<img src="images/welcome_inn/welcome_inn_shop_table_script.png"
-							style="max-width: 100%; height: auto;">
+							alt="Table upgrade script" />
+					</figure>
+					<div class="split-text">
+						<p>Some upgrades take a bit more work &mdash; like the table upgrade, which lets players buy
+							more tables until the maximum is reached, after which it upgrades existing tables by
+							increasing their size.</p>
 					</div>
+				</div>
 
-					<br>
-					<h2>Inn Mechanic</h2>
+				<h2>Inn mechanic</h2>
+				<p>Customers can stay in the upstairs "inn," multiplying their payment and extending their stay.
+					Payments increase exponentially with the duration of their stay.</p>
+				<figure class="media">
+					<video autoplay loop muted playsinline>
+						<source src="images/welcome_inn/welcome_inn_inn_video.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</figure>
 
-					<p>In our game, customers can stay in the upstairs "inn," multiplying their payment and extending
-						their stay. Payments increase exponentially with the duration of their stay.</p>
+				<h2>Sprite animations</h2>
+				<p>I was responsible for sourcing sprites, adding their animations, and creating a sprite animation
+					tree to manage every animated sprite in the game.</p>
+				<figure class="media">
+					<video autoplay loop muted playsinline>
+						<source src="images/welcome_inn/welcome_inn_sprite_animation.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</figure>
+				<figure class="media">
+					<img src="images/welcome_inn/welcome_inn_sprite_tree.png" alt="Sprite animation tree" />
+					<figcaption>The sprite animation tree.</figcaption>
+				</figure>
 
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-				padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-						<video autoplay loop muted playsinline
-							style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
-							<source src="images/welcome_inn/welcome_inn_inn_video.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
+				<h2>Music &amp; sound design</h2>
+				<p>I composed the music for the game.</p>
+				<figure class="media">
+					<video autoplay loop muted playsinline controls>
+						<source src="images/welcome_inn/welcome_inn_music_demo.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</figure>
+				<p>I also added all the sound effects, ensuring nearly every action provides both visual and audio
+					feedback.</p>
+				<figure class="media">
+					<video autoplay loop muted playsinline controls>
+						<source src="images/welcome_inn/welcome_inn_sfx_demo.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</figure>
+
+				<h2>Scripting</h2>
+				<div class="split">
+					<figure class="split-media">
+						<img src="images/welcome_inn/welcome_inn_scripts.png" alt="Project scripts" />
+					</figure>
+					<div class="split-text">
+						<p>We each played a key role in scripting and used object-oriented practices throughout the
+							project.</p>
 					</div>
+				</div>
 
-					<br>
-					<h2>Sprite Animations</h2>
-
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-				padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-						<video autoplay loop muted playsinline
-							style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
-							<source src="images/welcome_inn/welcome_inn_sprite_animation.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
-					</div>
-					<br>
-					<p>I was also responsible for sourcing sprites, adding their animations, and creating a sprite
-						animation
-						tree to manage all animated sprites.</p>
-
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-					   padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-						<img src="images/welcome_inn/welcome_inn_sprite_tree.png"
-							style="max-width: 100%; height: auto;">
-					</div>
-
-					<br>
-
-					<h2>Music/SFX Creation</h2>
-
-					<p>I made the music for this game.</p>
-
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-				padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-						<video autoplay loop muted playsinline controls
-							style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
-							<source src="images/welcome_inn/welcome_inn_music_demo.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
-					</div>
-					<br>
-					<p>I added all the sound effects to the game, ensuring nearly every action provides both visual and
-						audio feedback.</p>
-
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-				padding: 10px; border-radius: 15px; max-width: 70%; margin: auto;">
-						<video autoplay loop muted playsinline controls
-							style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
-							<source src="images/welcome_inn/welcome_inn_sfx_demo.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
-					</div>
-
-					<br>
-					<h2>Scripting</h2>
-
-					<div style="display: flex; justify-content: center; align-items: center; background-color: #e7e7e7; 
-            padding: 10px; border-radius: 15px; max-width: 70%; margin: auto; flex-wrap: wrap;">
-						<p style="flex: 1; text-align: left; margin: 10px;">
-							We each played a key role in scripting and utilized object-oriented practices throughout the
-							project. To see the code, view our
-							<a href="https://github.com/egreenfield323/CS315-Project3" target="_blank">repository.</a>
-						</p>
-						<div style="flex: 0 1 30%; margin: 10px;">
-							<img src="images/welcome_inn/welcome_inn_scripts.png"
-								style="max-width: 100%; height: auto; border-radius: 10px;">
-						</div>
-					</div>
-
-				</ul>
-				<br>
-				<p style="text-align: center;">The repository to this project can be found <a
-						href="https://github.com/egreenfield323/CS315-Project3" target="_blank">here.</a>
-				</p>
-
-				<br>
-
+				<div class="cta-row">
+					<a href="https://github.com/egreenfield323/CS315-Project3" target="_blank"
+						class="button primary">View the repository</a>
+				</div>
 			</div>
 		</div>
 
@@ -230,6 +201,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/enhancements.js"></script>
 
 </body>
 

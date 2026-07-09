@@ -12,6 +12,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/enhancements.css" />
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
@@ -48,82 +49,63 @@
             </ul>
         </nav>
 
-        <!-- Main -->
-        <div id="main">
-            <div class="inner">
-                <h1>TCP Client-Sever File Sharing App</h1>
-                <span class="image main"><img src="images/tcp_server/tcp_server_banner.png" alt="" /></span>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner project">
+				<h1>TCP Client-Server File Sharing App</h1>
+				<p class="project-lede">A multi-threaded client-server file sharing program written in Java for an
+					operating systems and networks course.</p>
+				<span class="image main"><img src="images/tcp_server/tcp_server_banner.png" alt="" /></span>
 
-                <div class="inner"
-                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e7e7e7; border-radius: 15px; padding: 20px;">
-                    <h2 style="text-align: center;">Project Details</h2>
-                    <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px;">
-                        <div style="flex: 0 1 35%; margin-right: 0.5rem;">
-                            <h3>Tools</h3>
-                            <ul>
-                                <li>Java</li>
-                            </ul>
-                        </div>
-                        <div style="flex: 0 1 35%; margin-left: 0.5rem;">
-                            <h3>Scope</h3>
-                            <ul>
-                                <li>Lead of Server Integration</li>
-                                <li>Helped with Client Integration too</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <br>
-                    <b>
-                        <a style="text-align: center;" href="https://github.com/egreenfield323/CS316-project-4"
-                            target="_blank">Github Repo</a>
-                    </b>
-                </div>
+				<div class="meta-bar">
+					<div>
+						<h3>Tools</h3>
+						<ul>
+							<li>Java</li>
+						</ul>
+					</div>
+					<div>
+						<h3>My Role</h3>
+						<ul>
+							<li>Lead of server integration</li>
+							<li>Client integration support</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Links</h3>
+						<ul>
+							<li><a href="https://github.com/egreenfield323/CS316-project-4" target="_blank">GitHub
+									repo</a></li>
+						</ul>
+					</div>
+				</div>
 
-                <br>
+				<p>In CS316 Introduction to Operating Systems and Computer Networks, a peer and I created this TCP
+					client-server file sharing program. Clients can upload, download, rename, delete, and list all
+					files on the server.</p>
 
+				<h2>Demo</h2>
+				<figure class="media">
+					<video autoplay loop muted playsinline controls>
+						<source src="images/tcp_server/tcp_server_demo.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</figure>
 
+				<p>Clients enter the server's IP and port in the program arguments before running.</p>
 
-                <p>In CS316 Introduction to Operating Systems and Computer Networks, myself and one other peer
-                    created
-                    this TCP client-server file sharing program.</p>
+				<div class="callout">
+					<p><b>Example arguments</b></p>
+					<p>Client: <code>localhost 3000</code><br>Server: <code>3000</code></p>
+				</div>
 
-                <p>Clients can upload, download, rename, delete, and list all files on the server.</p>
+				<div class="cta-row">
+					<a href="https://github.com/egreenfield323/CS316-project-4" target="_blank"
+						class="button primary">View the repository</a>
+				</div>
+			</div>
+		</div>
 
-                <br>
-
-                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            background-color: #e7e7e7; padding: 10px; border-radius: 15px; max-width: 80%; margin: auto; 
-            overflow: hidden;">
-
-                    <video autoplay loop muted playsinline controls
-                        style="border-radius: 10px; object-fit: contain; max-width: 100%; max-height: 100%;">
-                        <source src="images/tcp_server/tcp_server_demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-
-                </div>
-                <br>
-                <p style="text-align:center">Clients must also enter the server's IP and port in the program arguments
-                    before running.</p>
-                <div style="justify-content: space-between; align-items: center; 
-                    background-color: #e7e7e7; padding: 10px; border-radius: 15px; 
-                    max-width: 70%; margin: auto; overflow: hidden;">
-                    <p style="text-align: center;"><b>Example arguments:</b></p>
-                    <p style="text-align: center;"><br>Client: localhost 3000<br>Server: 3000</p>
-                </div>
-
-                <br>
-                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            background-color: #e7e7e7; padding: 10px; border-radius: 30px; 
-            max-width: 30%; margin: auto; overflow: hidden; height: 200px;">
-                    <b>
-                        <p style="text-align: center; margin: 0;">Look at the <a
-                                href="https://github.com/egreenfield323/CS316-project-4" target="_blank">repository!</a>
-                        </p>
-                    </b>
-                </div>
-            </div>
-        </div>
         <!-- Footer -->
         <footer id="footer">
             <div class="inner">
@@ -156,6 +138,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+	<script src="assets/js/enhancements.js"></script>
 
 </body>
 

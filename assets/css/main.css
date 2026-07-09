@@ -3508,6 +3508,11 @@ td {
   background-color: #2b2b2b;
 }
 
+.filter-buttons button.active {
+  background-color: #ff4545;
+  color: #ffffff !important;
+}
+
 .hidden {
   display: none;
 }
