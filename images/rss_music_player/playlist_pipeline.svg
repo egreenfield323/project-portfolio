@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" font-family="'Source Sans Pro', Helvetica, Arial, sans-serif">
+	<style>
+		.box { fill: #ffffff; stroke: #dddddd; stroke-width: 1; rx: 6; }
+		.title { font-size: 15px; font-weight: 600; fill: #3a3a3a; }
+		.item { font-size: 12.5px; fill: #777777; }
+		.arrow { stroke: #bbbbbb; stroke-width: 1.2; marker-end: url(#head); }
+		.arrowlabel { font-size: 11.5px; fill: #999999; }
+		.accent { fill: #c95d7a; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; }
+	</style>
+	<defs>
+		<marker id="head" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+			<path d="M0,0 L7,3.5 L0,7 Z" fill="#bbbbbb" />
+		</marker>
+	</defs>
+
+	<!-- Frontend -->
+	<rect class="box" x="16" y="70" width="200" height="130" rx="6" />
+	<text class="accent" x="32" y="94">VUE 3 FRONTEND</text>
+	<text class="title" x="32" y="116">Playlist UI</text>
+	<text class="item" x="32" y="138">UserPage.vue</text>
+	<text class="item" x="32" y="156">AddToPlaylistModal.vue</text>
+	<text class="item" x="32" y="174">playlistApi.js helpers</text>
+
+	<!-- API service -->
+	<rect class="box" x="264" y="70" width="200" height="130" rx="6" />
+	<text class="accent" x="280" y="94">FLASK &#183; AWS LAMBDA</text>
+	<text class="title" x="280" y="116">API service</text>
+	<text class="item" x="280" y="138">routes/playlists.py</text>
+	<text class="item" x="280" y="156">session auth &amp; validation</text>
+	<text class="item" x="280" y="174">track metadata from RSS</text>
+
+	<!-- DB service -->
+	<rect class="box" x="512" y="70" width="200" height="130" rx="6" />
+	<text class="accent" x="528" y="94">FLASK &#183; INTERNAL</text>
+	<text class="title" x="528" y="116">DB service</text>
+	<text class="item" x="528" y="138">playlist CRUD routes</text>
+	<text class="item" x="528" y="156">add / remove / reorder</text>
+	<text class="item" x="528" y="174">ownership checks</text>
+
+	<!-- Database -->
+	<rect class="box" x="760" y="70" width="184" height="130" rx="6" />
+	<text class="accent" x="776" y="94">POSTGRESQL</text>
+	<text class="title" x="776" y="116">Data model</text>
+	<text class="item" x="776" y="138">Playlist</text>
+	<text class="item" x="776" y="156">PlaylistTrack (ordered)</text>
+	<text class="item" x="776" y="174">Alembic migrations</text>
+
+	<!-- Arrows -->
+	<line class="arrow" x1="216" y1="135" x2="258" y2="135" />
+	<text class="arrowlabel" x="237" y="122" text-anchor="middle">fetch</text>
+	<line class="arrow" x1="464" y1="135" x2="506" y2="135" />
+	<text class="arrowlabel" x="485" y="122" text-anchor="middle">REST</text>
+	<line class="arrow" x1="712" y1="135" x2="754" y2="135" />
+	<text class="arrowlabel" x="733" y="122" text-anchor="middle">ORM</text>
+
+	<text class="item" x="480" y="248" text-anchor="middle">Every playlist operation flows through all four layers &#8212; each layer covered by its own unit and integration tests.</text>
+</svg>

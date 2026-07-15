@@ -31,6 +31,13 @@
 			topics: ["themed-entertainment", "programming"]
 		},
 		{
+			file: "rss_music_player.html",
+			title: "RSS Music Player",
+			img: "images/rss_music_player/rss_music_player_cover.png",
+			tags: ["Vue", "Full Stack", "Auth", "AWS"],
+			topics: ["programming"]
+		},
+		{
 			file: "3ds_sound_software.html",
 			title: "Nintendo Sound Software Re-Creation",
 			img: "images/3ds_sound_software/3ds_sound_software_cover.png",
@@ -155,6 +162,108 @@
 			"</div>";
 		inner.appendChild(section);
 	}
+
+	/* ----- Interactive: step-through flow diagrams ----- */
+
+	document.querySelectorAll(".flow-stepper").forEach(function (fig) {
+		var groups = fig.querySelectorAll("svg [data-step]");
+		var buttons = fig.querySelectorAll(".pill-row button");
+		if (!groups.length || !buttons.length) return;
+
+		function setStep(step) {
+			fig.classList.toggle("stepping", step !== null);
+			groups.forEach(function (g) {
+				g.classList.toggle(
+					"on",
+					step !== null && +g.getAttribute("data-step") <= step
+				);
+			});
+			buttons.forEach(function (b) {
+				var v = b.getAttribute("data-step-btn");
+				b.classList.toggle(
+					"on",
+					step === null ? v === "all" : +v === step
+				);
+			});
+		}
+
+		buttons.forEach(function (b) {
+			b.addEventListener("click", function () {
+				var v = b.getAttribute("data-step-btn");
+				setStep(v === "all" ? null : +v);
+			});
+		});
+	});
+
+	/* ----- Interactive: image swap ----- */
+
+	document.querySelectorAll(".image-swap").forEach(function (fig) {
+		var img = fig.querySelector("img");
+		var caption = fig.querySelector("figcaption");
+		var buttons = fig.querySelectorAll(".pill-row button");
+		if (!img || !buttons.length) return;
+
+		buttons.forEach(function (b) {
+			b.addEventListener("click", function () {
+				if (b.classList.contains("on")) return;
+				buttons.forEach(function (o) {
+					o.classList.remove("on");
+				});
+				b.classList.add("on");
+				fig.classList.add("fading");
+				setTimeout(function () {
+					img.src = b.getAttribute("data-src");
+					if (caption && b.getAttribute("data-caption")) {
+						caption.textContent = b.getAttribute("data-caption");
+					}
+					fig.classList.remove("fading");
+				}, 200);
+			});
+		});
+	});
+
+	/* ----- Interactive: click-to-zoom lightbox ----- */
+
+	document
+		.querySelectorAll(".project .media img, .project .split-media img")
+		.forEach(function (img) {
+			img.addEventListener("click", function () {
+				var box = document.createElement("div");
+				box.className = "lightbox";
+				var big = document.createElement("img");
+				big.src = img.src;
+				big.alt = img.alt || "";
+				box.appendChild(big);
+				document.body.appendChild(box);
+				requestAnimationFrame(function () {
+					box.classList.add("show");
+				});
+
+				function onKey(e) {
+					if (e.key === "Escape") close();
+				}
+				function close() {
+					box.classList.remove("show");
+					document.removeEventListener("keydown", onKey);
+					setTimeout(function () {
+						box.remove();
+					}, 250);
+				}
+				box.addEventListener("click", close);
+				document.addEventListener("keydown", onKey);
+			});
+		});
+
+	/* ----- Interactive: live demo cover ----- */
+
+	document.querySelectorAll(".demo-cover").forEach(function (cover) {
+		cover.addEventListener("click", function () {
+			cover.style.opacity = "0";
+			setTimeout(function () {
+				cover.remove();
+			}, 250);
+		});
+	});
 
 	/* ----- Scroll reveal ----- */
 

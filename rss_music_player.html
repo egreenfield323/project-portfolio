@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Evan's Portfolio</title>
+	<link rel="icon" type="image/x-icon" href="images/computer.png" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/enhancements.css?v=2" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio</span>
+				</a>
+
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="assets/revised_resume.pdf" target="_blank">Resume</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner project">
+				<h1>RSS Music Player</h1>
+				<p class="project-lede">My senior capstone: a live web app that plays music and podcasts straight
+					from artists' RSS feeds, with Bitcoin tipping built in.</p>
+				<span class="image main"><img src="images/rss_music_player/rss_music_player_banner.png" alt="" /></span>
+
+				<div class="meta-bar">
+					<div>
+						<h3>Tools</h3>
+						<ul>
+							<li>Vue 3 + Vite</li>
+							<li>Flask &amp; PostgreSQL</li>
+							<li>Vitest &amp; GitHub Actions</li>
+							<li>Docker &amp; AWS</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Focus</h3>
+						<ul>
+							<li>Accounts, sign-in &amp; email verification</li>
+							<li>Playlists, end to end</li>
+							<li>Frontend structure &amp; testing</li>
+							<li>Pages the client can edit</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Links</h3>
+						<ul>
+							<li><a href="https://www.musicpodcastplayer.com/" target="_blank">Live site</a></li>
+							<li><a href="https://github.com/CS495-Fall2025/Team-2" target="_blank">GitHub repo</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<p>As part of my senior capstone, my team and I built the Music Podcast Player &mdash; live today
+					at <a href="https://www.musicpodcastplayer.com/" target="_blank">musicpodcastplayer.com</a>.
+					Artists publish their music as an RSS feed, anyone can stream it for free, and listeners who
+					want to support an artist can send Bitcoin micropayments while they listen. The app is a
+					Vue&nbsp;3 frontend with a Python backend and PostgreSQL, on AWS. You can
+					<a href="#try-it">try it at the bottom of this page</a>.</p>
+
+				<h2>Frontend foundations</h2>
+				<p>I pitched our frontend stack &mdash; Vite, Vue&nbsp;3, and JavaScript &mdash; and built the
+					first pieces of the app: the components that turn an RSS feed into the playable track list in
+					the banner above, and the navigation bar. The mini player was later built on top of them.</p>
+				<p>I also reorganized the whole frontend: every <code>.vue</code> file keeps only its layout and
+					styling, and the logic lives in its own JavaScript file. That made the code easy to test, and
+					the team followed the pattern for the rest of the project.</p>
+
+				<div class="callout">
+					<code>NavBar.vue</code> renders it &middot; <code>navBar.js</code> drives it &middot;
+					<code>navBar.test.js</code> proves it &mdash; repeated across ~25 components.
+				</div>
+
+				<p>I set the direction for frontend testing: I wrote the project's first tests, covered every
+					logic file, and hooked the suite into GitHub Actions so it runs on every pull request. I also
+					added structured logging across the backend so AWS CloudWatch could graph what the app was
+					doing.</p>
+
+				<h2>Accounts &amp; sign-in</h2>
+				<p>I built the account system. Signing up requires verifying your email: the backend generates a
+					six-digit code, emails it with AWS Simple Email Service (SES), and only creates the account
+					once the right code comes back.</p>
+
+				<figure class="media flow-stepper">
+					<svg viewBox="0 0 960 480" role="img"
+						aria-label="Diagram of the signup flow: the browser submits the form, the API service emails a code through SES, and the account is only created after the code is verified">
+						<defs>
+							<marker id="fdh1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+								<path d="M0,0 L8,4 L0,8 Z" fill="#b5b5b5" />
+							</marker>
+						</defs>
+						<text x="140" y="32" text-anchor="middle" font-size="19" font-weight="600"
+							fill="#3a3a3a">Browser</text>
+						<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="600"
+							fill="#3a3a3a">API service</text>
+						<text x="820" y="32" text-anchor="middle" font-size="19" font-weight="600"
+							fill="#3a3a3a">Email (SES)</text>
+						<line x1="140" y1="46" x2="140" y2="440" stroke="#e5e5e5" stroke-width="1.5" />
+						<line x1="480" y1="46" x2="480" y2="440" stroke="#e5e5e5" stroke-width="1.5" />
+						<line x1="820" y1="46" x2="820" y2="440" stroke="#e5e5e5" stroke-width="1.5" />
+						<g data-step="1">
+							<circle cx="123" cy="88" r="11" fill="#f2849e" />
+							<text x="123" y="92.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">1</text>
+							<line x1="140" y1="102" x2="472" y2="102" stroke="#b5b5b5" stroke-width="1.6"
+								marker-end="url(#fdh1)" />
+							<text x="306" y="92" text-anchor="middle" font-size="16"
+								fill="#555555">sign up &#8212; username, email, password</text>
+						</g>
+						<g data-step="2">
+							<circle cx="503" cy="140" r="11" fill="#f2849e" />
+							<text x="503" y="144.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">2</text>
+							<text x="522" y="146" font-size="15" font-style="italic" fill="#909090">code
+								generated; signup held in the session</text>
+							<text x="522" y="167" font-size="15" font-style="italic" fill="#909090">&#8212; no
+								database row yet</text>
+						</g>
+						<g data-step="3">
+							<circle cx="463" cy="206" r="11" fill="#f2849e" />
+							<text x="463" y="210.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">3</text>
+							<line x1="480" y1="220" x2="812" y2="220" stroke="#b5b5b5" stroke-width="1.6"
+								marker-end="url(#fdh1)" />
+							<text x="646" y="210" text-anchor="middle" font-size="16"
+								fill="#555555">email the 6-digit code</text>
+						</g>
+						<g data-step="4">
+							<circle cx="123" cy="272" r="11" fill="#f2849e" />
+							<text x="123" y="276.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">4</text>
+							<line x1="140" y1="286" x2="472" y2="286" stroke="#b5b5b5" stroke-width="1.6"
+								marker-end="url(#fdh1)" />
+							<text x="306" y="276" text-anchor="middle" font-size="16"
+								fill="#555555">submit the code</text>
+						</g>
+						<g data-step="5">
+							<circle cx="503" cy="324" r="11" fill="#f2849e" />
+							<text x="503" y="328.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">5</text>
+							<text x="522" y="330" font-size="15" font-style="italic" fill="#909090">code verified
+								&#8212; account created</text>
+							<line x1="472" y1="376" x2="140" y2="376" stroke="#b5b5b5" stroke-width="1.6"
+								stroke-dasharray="5 5" marker-end="url(#fdh1)" />
+							<text x="306" y="366" text-anchor="middle" font-size="16"
+								fill="#555555">signed in &#8212; session cookie</text>
+						</g>
+						<text x="480" y="470" text-anchor="middle" font-size="15" font-style="italic"
+							fill="#909090">Abandoned signups never touch the database.</text>
+					</svg>
+					<div class="pill-row">
+						<button data-step-btn="1">1 &middot; Sign up</button>
+						<button data-step-btn="2">2 &middot; Held in session</button>
+						<button data-step-btn="3">3 &middot; Code emailed</button>
+						<button data-step-btn="4">4 &middot; Code entered</button>
+						<button data-step-btn="5">5 &middot; Account created</button>
+						<button data-step-btn="all" class="on">Show all</button>
+					</div>
+					<figcaption>Click through the signup flow I built &mdash; no account exists until the emailed
+						code checks out.</figcaption>
+				</figure>
+
+				<div class="split">
+					<figure class="split-media">
+						<img src="images/rss_music_player/signup_page.png"
+							alt="Create Account form with live password requirement checklist" />
+					</figure>
+					<div class="split-text">
+						<h3>Guardrails in the form</h3>
+						<p>The signup form checks everything as you type &mdash; a live checklist for password
+							rules, username rules, and matching passwords &mdash; so bad input gets caught before
+							it's ever sent to the server.</p>
+					</div>
+				</div>
+
+				<p>Sign-in uses PKCE: the login page creates a random secret and sends the server a hash of it,
+					then the secret itself goes along with your password &mdash; so a captured login request can't
+					be replayed. A successful login sets two signed tokens (JWTs) as httpOnly cookies, a one-hour
+					access token and a seven-day refresh token, which JavaScript can never read.</p>
+
+				<figure class="media flow-stepper">
+					<svg viewBox="0 0 960 440" role="img"
+						aria-label="Diagram of the PKCE login flow: the browser sends a hashed secret first, then the credentials plus the secret, and the server returns JWT tokens in httpOnly cookies">
+						<defs>
+							<marker id="fdh2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+								<path d="M0,0 L8,4 L0,8 Z" fill="#b5b5b5" />
+							</marker>
+						</defs>
+						<text x="200" y="32" text-anchor="middle" font-size="19" font-weight="600"
+							fill="#3a3a3a">Browser</text>
+						<text x="760" y="32" text-anchor="middle" font-size="19" font-weight="600"
+							fill="#3a3a3a">API service</text>
+						<line x1="200" y1="46" x2="200" y2="400" stroke="#e5e5e5" stroke-width="1.5" />
+						<line x1="760" y1="46" x2="760" y2="400" stroke="#e5e5e5" stroke-width="1.5" />
+						<g data-step="1">
+							<circle cx="223" cy="80" r="11" fill="#f2849e" />
+							<text x="223" y="84.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">1</text>
+							<text x="242" y="86" font-size="15" font-style="italic" fill="#909090">the login page
+								creates a random secret (verifier)</text>
+							<text x="242" y="107" font-size="15" font-style="italic" fill="#909090">and its
+								SHA-256 hash (challenge)</text>
+						</g>
+						<g data-step="2">
+							<circle cx="183" cy="146" r="11" fill="#f2849e" />
+							<text x="183" y="150.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">2</text>
+							<line x1="200" y1="160" x2="752" y2="160" stroke="#b5b5b5" stroke-width="1.6"
+								marker-end="url(#fdh2)" />
+							<text x="477" y="150" text-anchor="middle" font-size="16"
+								fill="#555555">send the challenge &#8212; stored in the session</text>
+						</g>
+						<g data-step="3">
+							<circle cx="183" cy="212" r="11" fill="#f2849e" />
+							<text x="183" y="216.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">3</text>
+							<line x1="200" y1="226" x2="752" y2="226" stroke="#b5b5b5" stroke-width="1.6"
+								marker-end="url(#fdh2)" />
+							<text x="477" y="216" text-anchor="middle" font-size="16"
+								fill="#555555">log in &#8212; username, password, verifier</text>
+						</g>
+						<g data-step="4">
+							<circle cx="500" cy="262" r="11" fill="#f2849e" />
+							<text x="500" y="266.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">4</text>
+							<text x="519" y="268" font-size="15" font-style="italic" fill="#909090">verifier
+								hashed and matched to the challenge;</text>
+							<text x="519" y="289" font-size="15" font-style="italic" fill="#909090">credentials
+								checked</text>
+						</g>
+						<g data-step="5">
+							<circle cx="183" cy="326" r="11" fill="#f2849e" />
+							<text x="183" y="330.5" text-anchor="middle" font-size="13" font-weight="700"
+								fill="#ffffff">5</text>
+							<line x1="752" y1="340" x2="200" y2="340" stroke="#b5b5b5" stroke-width="1.6"
+								stroke-dasharray="5 5" marker-end="url(#fdh2)" />
+							<text x="477" y="330" text-anchor="middle" font-size="16"
+								fill="#555555">JWT access + refresh tokens as httpOnly cookies</text>
+						</g>
+						<text x="480" y="430" text-anchor="middle" font-size="15" font-style="italic"
+							fill="#909090">Tokens are never readable from JavaScript.</text>
+					</svg>
+					<div class="pill-row">
+						<button data-step-btn="1">1 &middot; Secret created</button>
+						<button data-step-btn="2">2 &middot; Hash sent</button>
+						<button data-step-btn="3">3 &middot; Log in</button>
+						<button data-step-btn="4">4 &middot; Server checks</button>
+						<button data-step-btn="5">5 &middot; Signed in</button>
+						<button data-step-btn="all" class="on">Show all</button>
+					</div>
+					<figcaption>Click through the PKCE sign-in flow &mdash; the hash goes first, and the secret
+						proves the login is real.</figcaption>
+				</figure>
+
+				<h2>The playlist epic</h2>
+				<p>The feature I'm proudest of is playlists &mdash; I planned the epic as scrum master and built
+					most of it. The backend got a new table for playlist tracks and endpoints to add, remove, and
+					reorder them, with unit and integration tests at every layer.</p>
+
+				<figure class="media">
+					<img src="images/rss_music_player/playlist_pipeline.svg"
+						alt="Diagram of the playlist feature's four layers: Vue frontend, Flask API service, internal DB service, and PostgreSQL data model" />
+					<figcaption>Each playlist action passes through all four layers, from the Vue page down to the
+						database.</figcaption>
+				</figure>
+
+				<div class="split flip">
+					<figure class="split-media">
+						<img src="images/rss_music_player/playlist_modal.png"
+							alt="Add to playlist modal over the feed view, with a new playlist being created" />
+					</figure>
+					<div class="split-text">
+						<h3>Add to playlist</h3>
+						<p>Every track gets a <code>+</code> button that opens this modal &mdash; pick an existing
+							playlist or create one on the spot.</p>
+					</div>
+				</div>
+
+				<p>I redesigned the profile page around playlists: cards you can edit in place, a track list with
+					reorder and remove buttons, and stats up top.</p>
+
+				<figure class="media">
+					<img src="images/rss_music_player/profile_tracklist.png"
+						alt="Profile page with an opened playlist showing tracks with add, reorder, and remove controls" />
+					<figcaption>The profile page I designed and built &mdash; playlists expand into a track list
+						you can reorder or trim. Click any screenshot to zoom.</figcaption>
+				</figure>
+
+				<p>I also made profiles shareable: flip a switch and anyone can see your playlists at
+					<code>musicpodcastplayer.com/user/yourname</code>.</p>
+
+				<figure class="media image-swap">
+					<div class="pill-row">
+						<button class="on" data-src="images/rss_music_player/profile_page.png"
+							data-caption="Your own profile, with the privacy switch.">Your view</button>
+						<button data-src="images/rss_music_player/public_profile.png"
+							data-caption="The same profile as a visitor sees it, once it's public.">A
+							visitor's view</button>
+					</div>
+					<img src="images/rss_music_player/profile_page.png"
+						alt="The profile page, switchable between the owner's view and the public visitor view" />
+					<figcaption>Your own profile, with the privacy switch.</figcaption>
+				</figure>
+
+				<h2>Pages the client can edit</h2>
+				<p>Our client needed to update the About and Contact pages himself, without a developer
+					redeploying the site. I built exactly that: admin accounts get an Edit button right on the
+					page, saves go to Amazon S3 and serve through CloudFront, and DOMPurify scrubs the content
+					before it renders so even an admin account can't sneak malicious code into the site.</p>
+
+				<h2>Leading the team</h2>
+				<p>I took on a lot of the leadership on this project: keeping track of what needed doing,
+					checking on progress, assigning work when our project manager was away, and picking up extra
+					tasks when someone fell behind. I was also a go-to pull request reviewer and the team's
+					unofficial QA lead, keeping tests green through big merges.</p>
+
+				<h2 id="try-it">Try it yourself</h2>
+				<p>This is the real app, live in this page. Search for a podcast, or make an account and build a
+					playlist &mdash; everything on this page works right here.</p>
+
+				<div class="demo-embed">
+					<div class="demo-cover"><span class="button primary">Click to use the live app</span></div>
+					<iframe src="https://www.musicpodcastplayer.com/" loading="lazy"
+						title="Music Podcast Player &mdash; live app"></iframe>
+				</div>
+
+				<div class="cta-row">
+					<a href="https://www.musicpodcastplayer.com/" target="_blank" class="button primary">Open the
+						full site</a>
+					<a href="https://github.com/CS495-Fall2025/Team-2" target="_blank" class="button">View the
+						repository</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<p><i><b>Contact</b></i></p>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/evan.greenfield9/"
+								class="icon brands style1 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="https://github.com/egreenfield323" class="icon brands style1 fa-github"><span
+									class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/evangreenfield1"
+								class="icon brands style1 fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="mailto:evan@evangreenfield.dev" class="icon solid style1 fa-envelope"><span
+									class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; Evan Greenfield</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/enhancements.js?v=2"></script>
+
+</body>
+
+</html>
